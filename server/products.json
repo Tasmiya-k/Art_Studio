@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1",
+    "desc": "Acrylic painting 5x5 canvas",
+    "name": "Pink flowers painting",
+    "price": "800",
+    "image": "https://res.cloudinary.com/dqhxl9jvc/image/upload/v1695921835/Artpieces/art-1_evd8y0.jpg"
+  },
+  {
+    "id": "2",
+    "desc": "Acrylic painting 4x4 canvas",
+    "name": "Ocean sunset",
+    "price": "800",
+    "image": "https://res.cloudinary.com/dqhxl9jvc/image/upload/v1695921834/Artpieces/art-2_z0fpr3.jpg"
+  },
+  {
+    "id": "3",
+    "desc": "Acrylic painting 5x8 canvas",
+    "name": "Light house with galaxy",
+    "price": "70",
+    "image": "https://res.cloudinary.com/dqhxl9jvc/image/upload/v1695921835/Artpieces/art-3_pdfkuj.jpg"
+  },
+  {
+    "id": "4",
+    "desc": "Acrylic painting 5x10 canvas",
+    "name": "Couple walking in rain",
+    "price": "800",
+    "image": "https://res.cloudinary.com/dqhxl9jvc/image/upload/v1695921835/Artpieces/art-4_vj5co6.jpg"
+  },
+  {
+    "id": "5",
+    "desc": "Water color paintings 3x6",
+    "name": "Snail mandala",
+    "price": "200",
+    "image": "https://res.cloudinary.com/dqhxl9jvc/image/upload/v1695921835/Artpieces/art-5_uxvgxe.jpg"
+  },
+  {
+    "id": "6",
+    "desc": "Acrylic painting 5x10 canvas",
+    "name": "Orangy night",
+    "price": "50",
+    "image": "https://res.cloudinary.com/dqhxl9jvc/image/upload/v1695921834/Artpieces/art-6_z99d21.jpg"
+  },
+  {
+    "id": "7",
+    "desc": "beautiful bookmark scenary 10x40 paper",
+    "name": "Landscape bookmark",
+    "price": "200",
+    "image": "https://res.cloudinary.com/dqhxl9jvc/image/upload/v1695921834/Artpieces/art-7_mscccp.jpg"
+  },
+  {
+    "id": "8",
+    "desc": "Acrylic painting 5x10 canvas",
+    "name": "Scarlet Macaw",
+    "price": "300",
+    "image": "https://res.cloudinary.com/dqhxl9jvc/image/upload/v1695921834/Artpieces/art-8_uy7ber.jpg"
+  }
+]
