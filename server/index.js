@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const User = require("./models/userdata");
+const bcrypt = require("bcrypt");
 const product = require("./models/product");
 
 const app = express();
@@ -23,29 +24,56 @@ app.get("/products", async (req, res) => {
 });
 
 app.post("/userapi/register", async (req, res) => {
-  console.log(req.body);
+  const { name, email, password } = req.body;
+
   try {
-    await User.create({
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-    });
+    const existingUser = await User.findOne({ email });
+
+    if (existingUser) {
+      return res
+        .status(400)
+        .json({ status: "error", error: "Email already in use" });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = new User({ name, email, password: hashedPassword });
+
+    await newUser.save();
+
     res.json({ status: "ok" });
   } catch (err) {
-    res.json({ status: "error", error: "Duplicate email" });
+    console.error("Error registering user:", err);
+
+    res.status(500).json({ status: "error", error: "Internal server error" });
   }
 });
 
 app.post("/userapi/login", async (req, res) => {
-  const user = await User.findOne({
-    email: req.body.email,
-    password: req.body.password,
-  });
+  const { email, password } = req.body;
 
-  if (user) {
-    return res.json({ status: "ok", user: true });
-  } else {
-    return res.json({ status: "error", user: false });
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res
+        .status(400)
+        .json({ status: "error", error: "Invalid email or password" });
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+
+    if (!isPasswordValid) {
+      return res
+        .status(400)
+        .json({ status: "error", error: "Invalid email or password" });
+    }
+
+    res.json({ status: "ok", user: true });
+  } catch (err) {
+    console.error("Error logging in user:", err);
+
+    res.status(500).json({ status: "error", error: "Internal server error" });
   }
 });
 
